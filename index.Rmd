@@ -1,0 +1,85 @@
+---
+title       : Car efficiency prediction
+subtitle    : 
+author      : Kirill Zhuravlev  
+job         : Engineer
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Importance of the problem
+
+ - Car efficiency prediction is important for several groups of people:
+    1) Self-employed (pizza delivery, newspaper delivery, babysitters, tutors etc.)
+    2) Frequent travelers (salespersons, advertisers)
+    3) Small businesses (fast-food, pet grooming, carpet/house cleaning, yard/lawn management, etc.)
+ - Costs of fuel are important in planning and managing business, may constitute significant portion of costs
+ - How efficient is the car you or your business use? Can we predict it based on its power?
+ - Does efficiency depend on the transmission type of your vehicle?
+ - We present new algorithm allowing one to predict the car fuel        consumption efficiency (measured in miles per gallon of fuel) if the car power and its transmission type are given.
+
+---
+
+## Data used to build the prediction model
+
+```{r, echo=FALSE, fig.align='center'}
+data(mtcars)
+library(ggplot2)
+g <- ggplot(mtcars, aes(x = hp, y = mpg))
+g <- g  + scale_size(range = c(10, 45), guide = "none" )
+g <- g + geom_point(aes(color=factor(am)), size=5)+labs(x="Power, hp", y="Efficiency, mpg", color="Transmission type")
+g
+```
+Data was taken from 1974 Motor Trend US magazine. We used simple linear regression model to predict the efficiency of a vehicle based on its power, measured in horsepowers.
+
+---
+
+## Data with the linear regression models
+
+```{r, echo=FALSE, fig.align='center'}
+data(mtcars)
+library(ggplot2)
+fit0<-lm(mpg~hp, subset(mtcars, mtcars$am==0))
+fit1<-lm(mpg~hp, subset(mtcars, mtcars$am==1))
+g <- ggplot(mtcars, aes(x = hp, y = mpg))
+g <- g  + scale_size(range = c(10, 45), guide = "none" )
+g <- g + geom_point(aes(color=factor(am)), size=5)+labs(x="Power, hp", y="Efficiency, mpg", color="Transmission type")
+g <- g+geom_abline(intercept=coef(fit1)[1], slope=coef(fit1)[2], size=2, color="blue")
+g<-g+geom_abline(intercept=coef(fit0)[1], slope=coef(fit0)[2], size=2, color="red")
+g
+```
+Blue and red lines are best linear fits for cars with manual and automatic transmission, respectively.
+
+---
+
+## Web application done using shiny
+
+Below is a screenshot of our web application
+```{r, message=FALSE, echo=FALSE, cache=FALSE}
+library(shiny)
+library(UsingR)
+shinyUI(fluidPage(
+  titlePanel(strong("Car efficiency calculator", style="color:red")),
+  
+  sidebarLayout(
+    sidebarPanel(
+      numericInput('hrp', p('Power, hp', style="color:orange"), 100, min=0, max=400),
+      br(),
+      radioButtons(inputId="trans", label =p(em('Transmission type', style="color:magenta")), 
+                   choices=list("Automatic"="auto", "Manual"="man")),
+      submitButton("Submit")
+    ),
+    
+    mainPanel(
+     h3("Your car efficiency is", style="color:blue"),
+      textOutput("hrp", inline=TRUE),
+       h5(strong("mpg"))
+  )
+ )
+))
+runApp(display.mode = "showcase")
+```
