@@ -14,9 +14,9 @@ knit        : slidify::knit2slides
 ## Importance of the problem
 
  - Car efficiency prediction is important for several groups of people:
-    1) Self-employed (pizza delivery, newspaper delivery, babysitters, tutors etc.)
-    2) Frequent travelers (salespersons, advertisers)
-    3) Small businesses (fast-food, pet grooming, carpet/house cleaning, yard/lawn management, etc.)
+ - 1) Self-employed (pizza delivery, newspaper delivery, babysitters, tutors etc.)
+ - 2) Frequent travelers (salespersons, advertisers)
+ - 3) Small businesses (fast-food, pet grooming, carpet/house cleaning, yard/lawn management, etc.)
  - Costs of fuel are important in planning and managing business, may constitute significant portion of costs
  - How efficient is the car you or your business use? Can we predict it based on its power?
  - Does efficiency depend on the transmission type of your vehicle?
