@@ -1,22 +1,52 @@
 ---
-title       : Car efficiency prediction
-subtitle    : 
-author      : Kirill Zhuravlev  
-job         : Engineer
-framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
-highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : tomorrow      # 
-widgets     : []            # {mathjax, quiz, bootstrap}
-mode        : selfcontained # {standalone, draft}
-knit        : slidify::knit2slides
+ title       : My presentation
+ author      : Kirill Zhuravlev  
+ framework   : revealjs  
+ highlighter : highlight.js
+ hitheme     : default  
+ widgets     : []    
+ mode        : selfcontained 
+ knit        : slidify::knit2slides
+---
+
+## Car efficiency prediction
+
+<br>
+<br>
+</br>
+  Author Kirill Zhuravlev
+  
+<br>
+<br>
+</br>
+  
+  Course Developing Data Products
+  
+<br>
+<br>
+</br>
+  
+  Done: 2016
+
 ---
 
 ## Importance of the problem
 
+<br>
+<br>
+</br>
  - Car efficiency prediction is important for several groups of people:
  - 1) Self-employed (pizza delivery, newspaper delivery, babysitters, tutors etc.)
  - 2) Frequent travelers (salespersons, advertisers)
  - 3) Small businesses (fast-food, pet grooming, carpet/house cleaning, yard/lawn management, etc.)
+
+---
+
+## Importance of the problem (cont.)
+
+<br>
+<br>
+</br>
  - Costs of fuel are important in planning and managing business, may constitute significant portion of costs
  - How efficient is the car you or your business use? Can we predict it based on its power?
  - Does efficiency depend on the transmission type of your vehicle?
@@ -24,21 +54,21 @@ knit        : slidify::knit2slides
 
 ---
 
-## Data used to build the prediction model
+### Data used to build the prediction model
 
-```{r, echo=FALSE, fig.align='center'}
+```{r, echo=FALSE, fig.align='center', warning=FALSE}
 data(mtcars)
 library(ggplot2)
-g <- ggplot(mtcars, aes(x = hp, y = mpg))
-g <- g  + scale_size(range = c(10, 45), guide = "none" )
-g <- g + geom_point(aes(color=factor(am)), size=5)+labs(x="Power, hp", y="Efficiency, mpg", color="Transmission type")
+g<-ggplot(mtcars, aes(x=hp, y=mpg))
+g<-g+geom_boxplot(aes(color=factor(am)))+labs(x="Power, hp", y="Efficiency, mpg", color="Transmission type")
 g
+#t.test(subset(mtcars, mtcars$am==0)$mpg, subset(mtcars, #mtcars$am==1)$mpg, mu=0)$p.value
 ```
-Data was taken from 1974 Motor Trend US magazine. We used simple linear regression model to predict the efficiency of a vehicle based on its power, measured in horsepowers.
+P-value is 0.0013, showing the statistical significance of the difference between two types of transmission.
 
 ---
 
-## Data with the linear regression models
+### Data with the linear regression models
 
 ```{r, echo=FALSE, fig.align='center'}
 data(mtcars)
@@ -56,30 +86,15 @@ Blue and red lines are best linear fits for cars with manual and automatic trans
 
 ---
 
-## Web application done using shiny
+### Web application done using shiny
 
-Below is a screenshot of our web application
-```{r, message=FALSE, echo=FALSE, cache=FALSE}
-library(shiny)
-library(UsingR)
-shinyUI(fluidPage(
-  titlePanel(strong("Car efficiency calculator", style="color:red")),
-  
-  sidebarLayout(
-    sidebarPanel(
-      numericInput('hrp', p('Power, hp', style="color:orange"), 100, min=0, max=400),
-      br(),
-      radioButtons(inputId="trans", label =p(em('Transmission type', style="color:magenta")), 
-                   choices=list("Automatic"="auto", "Manual"="man")),
-      submitButton("Submit")
-    ),
-    
-    mainPanel(
-     h3("Your car efficiency is", style="color:blue"),
-      textOutput("hrp", inline=TRUE),
-       h5(strong("mpg"))
-  )
- )
-))
-runApp(display.mode = "showcase")
-```
+<br>
+<br>
+</br>
+Data was taken from 1974 Motor Trend US magazine. We used simple linear regression model to predict the efficiency of a vehicle based on its power, measured in horsepowers.
+<br>
+<br>
+</br>
+Link to application:
+https://kzhuravlev.shinyapps.io/My_data_product_project/
+

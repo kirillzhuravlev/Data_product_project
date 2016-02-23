@@ -1,204 +1,127 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Car efficiency prediction</title>
   <meta charset="utf-8">
-  <meta name="description" content="Car efficiency prediction">
+  <title>My presentation</title>
+  <meta name="description" content="">
   <meta name="author" content="Kirill Zhuravlev">
-  <meta name="generator" content="slidify" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
-  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
-    media="only screen and (max-device-width: 480px)" >
-  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
-  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
-  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
-
-  
-  <!-- Grab CDN jQuery, fall back to local if offline -->
-  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
-  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
-  <script data-main="libraries/frameworks/io2012/js/slides" 
-    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
-  </script>
-  
-  
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/reveal.min.css">
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/theme/default.css" id="theme">
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/default.css" id="theme">
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->  <link rel="stylesheet" href = "assets/css/ribbons.css">
 
 </head>
-<body style="opacity: 0">
-  <slides class="layout-widescreen">
-    
-    <!-- LOGO SLIDE -->
-        <slide class="title-slide segue nobackground">
-  <hgroup class="auto-fadein">
-    <h1>Car efficiency prediction</h1>
-    <h2></h2>
-    <p>Kirill Zhuravlev<br/>Engineer</p>
-  </hgroup>
-  <article></article>  
-</slide>
-    
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class='' data-state='' id='slide-1'>
+  <h2>Car efficiency prediction</h2>
+  <p><br>
+<br>
+</br>
+  Author Kirill Zhuravlev</p>
 
-    <!-- SLIDES -->
-    <slide class="" id="slide-1" style="background:;">
-  <hgroup>
-    <h2>Importance of the problem</h2>
-  </hgroup>
-  <article data-timings="">
-    <ul>
+<p><br>
+<br>
+</br></p>
+
+<p>Course Developing Data Products</p>
+
+<p><br>
+<br>
+</br></p>
+
+<p>Done: 2016</p>
+
+</section>
+<section class='' data-state='' id='slide-2'>
+  <h2>Importance of the problem</h2>
+  <p><br>
+<br>
+</br></p>
+
+<ul>
 <li>Car efficiency prediction is important for several groups of people:</li>
 <li>1) Self-employed (pizza delivery, newspaper delivery, babysitters, tutors etc.)</li>
 <li>2) Frequent travelers (salespersons, advertisers)</li>
 <li>3) Small businesses (fast-food, pet grooming, carpet/house cleaning, yard/lawn management, etc.)</li>
+</ul>
+
+</section>
+<section class='' data-state='' id='slide-3'>
+  <h2>Importance of the problem (cont.)</h2>
+  <p><br>
+<br>
+</br></p>
+
+<ul>
 <li>Costs of fuel are important in planning and managing business, may constitute significant portion of costs</li>
 <li>How efficient is the car you or your business use? Can we predict it based on its power?</li>
 <li>Does efficiency depend on the transmission type of your vehicle?</li>
 <li>We present new algorithm allowing one to predict the car fuel        consumption efficiency (measured in miles per gallon of fuel) if the car power and its transmission type are given.</li>
 </ul>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+</section>
+<section class='' data-state='' id='slide-4'>
+  <h3>Data used to build the prediction model</h3>
+  <p><img src="assets/fig/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" />
+P-value is 0.0013, showing the statistical significance of the difference between two types of transmission.</p>
 
-<slide class="" id="slide-2" style="background:;">
-  <hgroup>
-    <h2>Data used to build the prediction model</h2>
-  </hgroup>
-  <article data-timings="">
-    <p><img src="assets/fig/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" />
-Data was taken from 1974 Motor Trend US magazine. We used simple linear regression model to predict the efficiency of a vehicle based on its power, measured in horsepowers.</p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-3" style="background:;">
-  <hgroup>
-    <h2>Data with the linear regression models</h2>
-  </hgroup>
-  <article data-timings="">
-    <p><img src="assets/fig/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
+</section>
+<section class='' data-state='' id='slide-5'>
+  <h3>Data with the linear regression models</h3>
+  <p><img src="assets/fig/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
 Blue and red lines are best linear fits for cars with manual and automatic transmission, respectively.</p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+</section>
+<section class='' data-state='' id='slide-6'>
+  <h3>Web application done using shiny</h3>
+  <p><br>
+<br>
+</br>
+Data was taken from 1974 Motor Trend US magazine. We used simple linear regression model to predict the efficiency of a vehicle based on its power, measured in horsepowers.
+<br>
+<br>
+</br>
+Link to application:
+<a href="https://kzhuravlev.shinyapps.io/My_data_product_project/">https://kzhuravlev.shinyapps.io/My_data_product_project/</a></p>
 
-<slide class="" id="slide-4" style="background:;">
-  <hgroup>
-    <h2>Web application done using shiny</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>Below is a screenshot of our web application
-&lt;!--html_preserve--&gt;<div class="container-fluid"></p>
-
-<h2>
-<strong style="color:red">Car efficiency calculator</strong>
-</h2>
-
-<div class="row">
-<div class="col-sm-4">
-<form class="well">
-<div class="form-group shiny-input-container">
-<label for="hrp">
-<p style="color:orange">Power, hp</p>
-</label>
-<input id="hrp" type="number" class="form-control" value="100" min="0" max="400"/>
-</div>
-
-<p><br/></p>
-
-<div id="trans" class="form-group shiny-input-radiogroup shiny-input-container">
-<label class="control-label" for="trans">
-<p>
-<em style="color:magenta">Transmission type</em>
-</p>
-</label>
-<div class="shiny-options-group">
-<div class="radio">
-<label>
-<input type="radio" name="trans" value="auto" checked="checked"/>
-<span>Automatic</span>
-</label>
-</div>
-
-<div class="radio">
-<label>
-<input type="radio" name="trans" value="man"/>
-<span>Manual</span>
-</label>
-</div>
-
-<p></div>
-</div></p>
-
-<div>
-<button type="submit" class="btn btn-primary">Submit</button>
-</div>
-
-<p></form>
-</div></p>
-
-<div class="col-sm-8">
-<h3 style="color:blue">Your car efficiency is</h3>
-<span id="hrp" class="shiny-text-output"></span>
-<h5>
-<strong>mpg</strong>
-</h5>
-</div>
-
-<p></div>
-</div>&lt;!--/html_preserve--&gt;</p>
-
-<pre><code>## Error in shinyAppDir(x): App dir must contain either app.R or server.R.
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-    <slide class="backdrop"></slide>
-  </slides>
-  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
-    <ul>
-      <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Importance of the problem'>
-         1
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Data used to build the prediction model'>
-         2
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Data with the linear regression models'>
-         3
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Web application done using shiny'>
-         4
-      </a>
-    </li>
-  </ul>
-  </div>  <!--[if IE]>
-    <script 
-      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
-    </script>
-    <script>CFInstall.check({mode: 'overlay'});</script>
-  <![endif]-->
+</section>
+    </div>
+  </div>
 </body>
-  <!-- Load Javascripts for Widgets -->
-  
-  <!-- LOAD HIGHLIGHTER JS FILES -->
-  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
-   
-  </html>
+  <script src="libraries/frameworks/revealjs/lib/js/head.min.js"></script>
+  <script src="libraries/frameworks/revealjs/js/reveal.min.js"></script>
+  <script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    theme: Reveal.getQueryHash().theme || 'default', 
+    transition: Reveal.getQueryHash().transition || 'default', 
+    dependencies: [
+    // Cross-browser shim that fully implements classList -
+    // https://github.com/eligrey/classList.js/
+      { src: 'libraries/frameworks/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList;}},
+      // Zoom in and out with Alt+click
+      { src: 'libraries/frameworks/revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Speaker notes
+      { src: 'libraries/frameworks/revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Remote control your reveal.js presentation using a touch device
+      //{ src: 'libraries/frameworks/revealjs/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+  });
+  </script>  <!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+ 
+
+</html>
